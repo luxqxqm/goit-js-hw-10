@@ -46,7 +46,6 @@ const options = {
 flatpickr(input, options)
 
 
-init()    
 startBtn.addEventListener('click', clickEvent)
 let timerID;
 function clickEvent() {
@@ -55,7 +54,6 @@ function clickEvent() {
             const miliSec = convertMs(ms)
             onTick(miliSec)
             if (ms <= 0) {
-                init()
                 clearInterval(timerID)
                 input.disabled = false
             }
@@ -98,10 +96,7 @@ function pad(value){
     
 
 
-function init() {
-    const time = convertMs(0);
-    onTick(time)
-};
+
 
 
     function onTick({ days, hours, minutes, seconds }) {
