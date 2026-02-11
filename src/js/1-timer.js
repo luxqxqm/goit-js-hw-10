@@ -49,20 +49,25 @@ flatpickr(input, options)
 startBtn.addEventListener('click', clickEvent)
 let timerID;
 function clickEvent() {
-        timerID = setInterval(() => {
-            const ms = userSelectedDate - Date.now()
-            const miliSec = convertMs(ms)
-            onTick(miliSec)
-            if (ms <= 0) {
-                clearInterval(timerID)
-                input.disabled = false
-            }
+    tik()
+    timerID = setInterval(() => {
+    tik()
         }, 1000);   
     startBtn.disabled = true
     input.disabled = true
     }
     
-    
+function tik() {
+         const ms = userSelectedDate - Date.now()
+        if (ms <= 0) {
+            onTick({ days: "00", hours: '00', minutes: '00', seconds: '00' })
+            clearInterval(timerID)
+                input.disabled = false
+                return
+            }
+            const miliSec = convertMs(ms)
+            onTick(miliSec)
+    }
        
 
 
