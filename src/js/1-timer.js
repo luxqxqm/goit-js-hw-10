@@ -48,17 +48,11 @@ flatpickr(input, options)
 
 startBtn.addEventListener('click', clickEvent)
 let timerID;
+
+
 function clickEvent() {
-    tik()
     timerID = setInterval(() => {
-    tik()
-        }, 1000);   
-    startBtn.disabled = true
-    input.disabled = true
-    }
-    
-function tik() {
-         const ms = userSelectedDate - Date.now()
+     const ms = userSelectedDate - Date.now()
         if (ms <= 0) {
             onTick({ days: "00", hours: '00', minutes: '00', seconds: '00' })
             clearInterval(timerID)
@@ -67,10 +61,11 @@ function tik() {
             }
             const miliSec = convertMs(ms)
             onTick(miliSec)
+        }, 1000);   
+    startBtn.disabled = true
+    input.disabled = true
     }
-       
-
-
+    
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time

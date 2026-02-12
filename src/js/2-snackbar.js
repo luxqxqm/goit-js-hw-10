@@ -20,8 +20,8 @@
                 } else {
                     reject(delayValue)
                 }    
-            })
-        }, delayValue);
+            }, delayValue);
+        })
 
         promise
             .then((delay) => {
